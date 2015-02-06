@@ -6,3 +6,7 @@ url: "http://capital-tattoo.com" # the base hostname & protocol for your site
 
 # Build settings
 markdown: kramdown
+
+safe: true
+lsi: false
+source: _site
