@@ -57,8 +57,7 @@ $logo: $ninesixty_gutter_width * 25
     :position relative
     :background #fff
     :height $header
-    :border
-      :bottom 1px solid $grey
+    +box-shadow(0 0 15px rgba(0, 0, 0, 0.6))
     
     > h1
       +grid-container($min_width)
@@ -114,16 +113,13 @@ $logo: $ninesixty_gutter_width * 25
   
   > #welcome
     > div
-      :height 800px
+      :height 100%
       :background
         :repeat no-repeat
         :attachment fixed
         :position center top
       +background-size(cover)
-      
-      &:not(:first-child)
-        :border
-          :top 1px solid $black
+      +box-shadow(inset 0 0 15px rgba(0, 0, 0, 0.6))
       
     > .first
       :background
