@@ -1,0 +1,136 @@
+---
+---
+
+@import "extras"
+@import "colors"
+@import "fonts"
+
+$base: 1.25em
+$baseline: 1rem
+
+$ninesixty_gutter_width: $baseline / 2
+$ninesixty_grid_width: 100%
+$ninesixty_columns: 8
+
+$free_space: $ninesixty_gutter_width * 4
+$min_width: $ninesixty_gutter_width * 96
+
+$header: $baseline * 3
+$logo: $baseline * 7
+
+html
+  :position relative
+  :min-height 100%
+  :min-width $min_width + $free_space
+  :height 100%
+  :background $white
+  :font
+    :size $base
+    :family "RistrettoSlabPro", sans-serif
+  :letter-spacing 1px
+  
+html, html a
+  :color $black
+
+*
+  +children-list-fix
+
+*, *:before, *:after
+  +box-sizing
+  +transition(opacity .2s ease-in-out)
+
+body
+  :line-height $baseline
+  :font
+    :size $baseline
+  :height 100%
+  :min-height 100%
+
+$header: $baseline * 6
+$logo: $ninesixty_gutter_width * 25
+
+#container
+  :height 100%
+  +grid-container
+  
+  > header
+    :position relative
+    :background #fff
+    :height $header
+    
+    > h1
+      +grid-container($min_width)
+      :height $header
+      
+      > a
+        +inline-block
+        :width $logo
+        :height $header
+        +indented
+        :background url(/assets/images/icons/logo.png) no-repeat center
+        +background-size(100%)
+      
+      & + nav
+        :margin
+          :top -$header
+    
+    > nav
+      +grid-container($min_width)
+      :height $header
+      :padding
+        :top ($header - $baseline * 3.5) / 2
+        :bottom ($header + $baseline * 1.5) / 2
+      :text
+        :align right
+      +children-inline
+      
+      > li
+        > a
+          :display block
+          :width 100%
+          :height 100%
+          +transition-property(opacity, color)
+          
+          &:hover
+            :color $grey
+        
+        &.active > a
+          :color $grey
+          :cursor default
+        
+        & + li
+          :margin
+            :left $ninesixty_gutter_width * 2
+    
+    &:before
+      :content ''
+      :position absolute
+      :width 100%
+      :top 100%
+      :left 0
+      :height $baseline
+      +gradient(#fff, rgba(255, 255, 255, 0))
+    
+    & + *
+      :height 100%
+      :margin
+        :top -$header
+      :padding
+        :top $header
+      :overflow overlay
+  
+  > #welcome
+    > .first
+      :height 800px
+      :background
+        :image url(/assets/images/backgrounds/main/first.jpg)
+        :repeat no-repeat
+        :attachment fixed
+        :position center top
+      +background-size(cover)
+
+@for $i from 1 to 4
+  @media only screen and (max-width: (6 - $i) * 250px)
+    html
+      :font
+        :size (5 - $i) * $base / 4
