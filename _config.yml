@@ -2,11 +2,7 @@
 title: Capital Tattoo | Столичная Студия Татуировки
 description: Capital Tattoo, столичная студия татуировки
 baseurl: "" # the subpath of your site, e.g. /blog/
-url: "http://capital-tattoo.com" # the base hostname & protocol for your site
+url: "http://akoppela.github.io/capital-tattoo" # the base hostname & protocol for your site
 
 # Build settings
 markdown: kramdown
-
-safe: true
-lsi: false
-source: _site

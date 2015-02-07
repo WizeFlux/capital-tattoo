@@ -26,7 +26,7 @@ html
   :background $white
   :font
     :size $base
-    :family "RistrettoSlabPro", sans-serif
+    :family "RistrettoSlabPro", display
   :letter-spacing 1px
   
 html, html a
@@ -90,6 +90,9 @@ $logo: $ninesixty_gutter_width * 25
           :display block
           :width 100%
           :height 100%
+          :font
+            :family "RistrettoSlabPro Medium", display
+            :weight medium
           +transition-property(opacity, color)
           
           &:hover
@@ -112,7 +115,7 @@ $logo: $ninesixty_gutter_width * 25
       :overflow overlay
   
   > #welcome
-    > div
+    > .picture
       :height 100%
       :background
         :repeat no-repeat
@@ -121,21 +124,59 @@ $logo: $ninesixty_gutter_width * 25
       +background-size(cover)
       +box-shadow(inset 0 0 15px rgba(0, 0, 0, 0.6))
       
-    > .first
-      :background
-        :image url(../assets/images/backgrounds/main/first.jpg)
+      &:first-child
+        +box-shadow(inset 0 -15px 15px rgba(0, 0, 0, 0.6))
       
-    > .second
-      :background
-        :image url(../assets/images/backgrounds/main/second.jpg)
+      &.first
+        :background
+          :image url(../assets/images/backgrounds/main/first.jpg)
       
-    > .third
-      :background
-        :image url(../assets/images/backgrounds/main/third.jpg)
+      &.second
+        :background
+          :image url(../assets/images/backgrounds/main/second.jpg)
       
-    > .fourth
-      :background
-        :image url(../assets/images/backgrounds/main/fourth.jpg)
+      &.third
+        :background
+          :image url(../assets/images/backgrounds/main/third.jpg)
+      
+      &.fourth
+        :background
+          :image url(../assets/images/backgrounds/main/fourth.jpg)
+      
+      & + .content
+        :margin
+          :top -$baseline
+    
+    > .content
+      :padding
+        :top $baseline * 2
+        :bottom $baseline * 4
+      :background $white
+      +box-shadow(0 0 15px rgba(0, 0, 0, 0.6))
+      
+      > h2
+        +grid-container($min_width)
+        :line-height $baseline * 2
+        :font
+          :size $baseline * 2
+          :family "RistrettoSlabPro Medium", display
+          :weight medium
+        :text
+          :align center
+        
+        & + *
+          :margin
+            :top $baseline * 1.5
+      
+      > p
+        +grid-container($min_width)
+        :line-height $baseline * 1.5
+        :text
+          :align justify
+        
+        & + *
+          :margin
+            :top $baseline
 
 @for $i from 1 to 4
   @media only screen and (max-width: (6 - $i) * 250px)
