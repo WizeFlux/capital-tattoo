@@ -119,7 +119,7 @@ $footer: $baseline * 4
       :bottom $footer
     
     > .picture
-      :height 110%
+      :height calc(100% + #{$footer - $baseline})
       :background
         :repeat no-repeat
         :attachment fixed
@@ -328,6 +328,9 @@ $footer: $baseline * 4
         & + *
           :margin
             :top $baseline
+      
+      &.full
+        :min-height calc(100% + #{$footer})
     
     & + footer
       :margin
