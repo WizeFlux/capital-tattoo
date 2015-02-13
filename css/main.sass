@@ -67,7 +67,7 @@ $footer: $baseline * 4
         :width $logo
         :height $header
         +indented
-        :background url(/assets/images/icons/logo.png) no-repeat center
+        :background url("{{ "/assets/images/icons/logo.png" | prepend: site.baseurl }}") no-repeat center
         +background-size(100%)
       
       & + nav
@@ -119,7 +119,7 @@ $footer: $baseline * 4
       :bottom $footer
     
     > .picture
-      :height 100%
+      :height 110%
       :background
         :repeat no-repeat
         :attachment fixed
@@ -128,19 +128,19 @@ $footer: $baseline * 4
       
       &.first
         :background
-          :image url(/assets/images/backgrounds/main/first.jpg)
+          :image url("{{ "/assets/images/backgrounds/main/first.jpg" | prepend: site.baseurl }}")
       
       &.second
         :background
-          :image url(/assets/images/backgrounds/main/second.jpg)
+          :image url("{{ "/assets/images/backgrounds/main/second.jpg" | prepend: site.baseurl }}")
       
       &.third
         :background
-          :image url(/assets/images/backgrounds/main/third.jpg)
+          :image url("{{ "/assets/images/backgrounds/main/third.jpg" | prepend: site.baseurl }}")
       
       &.fourth
         :background
-          :image url(/assets/images/backgrounds/main/fourth.jpg)
+          :image url("{{ "/assets/images/backgrounds/main/fourth.jpg" | prepend: site.baseurl }}")
     
     > .content
       :position relative
