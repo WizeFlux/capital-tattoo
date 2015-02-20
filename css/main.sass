@@ -249,7 +249,7 @@ $footer: $baseline * 4
             :color $black
             :attachment initial
             :position center
-          +background-size(auto 95%)
+          +background-size(auto 99%)
           +box-shadow(inset 0 0 15px rgba(0, 0, 0, 0.6))
         
         &.first
@@ -367,7 +367,10 @@ $footer: $baseline * 4
               :align right
         
           &.short
-            +grid-container($ninesixty_gutter_width * 60)
+            :width 60%
+            :margin
+              :left auto
+              :right auto
           
           &.margin-top
             :margin
@@ -538,125 +541,148 @@ $footer: $baseline * 4
                 > h2, > span
                   :color $grey
         
-          &.list > li
-            :display block
-            :width auto
-            :text
-              :align left
-            +children-inline
-          
-            > div, > a
+          &.list
+            :width $min_width
+            
+            > li
+              :display block
+              :width auto
               :text
-                :align center
-            
-              & + *
-                :margin
-                  :left $ninesixty_gutter_width * 4
+                :align left
+              +children-inline
           
-            > aside
-              // :width $min_width - $ninesixty_gutter_width * 34
-            
-              > ul
-                :height $baseline * 22.5
-                :white-space nowrap
-                :overflow hidden
-                +children-inline
+              > div, > a
+                :position relative
+                :width 30%
+                :padding
+                  :left 0
+                  :right 0
+                :text
+                  :align center
+      
+                > h3
+                  :width 200%
+                  :position absolute
+                  :bottom $baseline
+                  :left 100% + (100% / 3)
+                  :line-height $baseline * 2
+                  :font
+                    :size $baseline * 1.5
+                    :family "RistrettoSlabPro Medium", display
+                    :weight medium
+                  :text
+                    :align left
+        
+                  > span
+                    :font
+                      :family "RistrettoSlabPro", display
+                      :weight normal
+      
+                > p
+                  :width 200%
+                  :position absolute
+                  :bottom 0
+                  :left 100% + (100% / 3)
+                  :text
+                    :align left
+                  :font
+                    :family "RistrettoSlabPro Medium", display
+                    :weight medium
+        
+                  > span
+                    :font
+                      :family "RistrettoSlabPro", display
+                      :weight normal
               
-                > li
+                > .photo
                   :position relative
-                  :z-index 1
-                  :width 100%
-                  :height 100%
-                  :background $black no-repeat center
-                  +background-size(cover)
-                  +box-shadow(inset 0 0 15px rgba(0, 0, 0, 0.6))
-                  +children-inline
-                
-                  > a
-                    :position absolute
-                    :width 50%
-                    :height 100%
-                    +opacity(0)
-                  
-                    &:before
-                      :content ''
-                      :position absolute
-                      :width $baseline * 2
-                      :height $baseline * 2
-                      :top 50%
-                      :margin
-                        :top -$baseline
-                      :background
-                        :color $white
-                      :background rgba(255, 255, 255, 0.6) url("{{ "/images/icons/arrow.png" | prepend: site.baseurl }}") center
-                      +background-size(cover)
-                      +border-radius($baseline)
-                      +box-shadow(inset 0 0 15px rgba(0, 0, 0, 0.25))
-                  
-                    &.left
-                      :left 0
-                    
-                      &:before
-                        :left $ninesixty_gutter_width * 2
-                        +rotate(180)
-                  
-                    &.right
-                      :right 0
-                    
-                      &:before
-                        :right $ninesixty_gutter_width * 2
-                  
-                    &:hover
-                      +opacity(1)
-                
-                  &.active
-                    :z-index 2
-                    +opacity(1)
-                    :-webkit-animation-duration .75s
-                    :animation-duration .75s
-                    :-webkit-animation-name vanishIn
-                    :animation-name vanishIn
-                
-                  &:not(.active)
-                    +opacity(0)
-                    :-webkit-animation-duration .75s
-                    :animation-duration .75s
-                    :-webkit-animation-name vanishOut
-                    :animation-name vanishOut
-                
-                  & ~ li
-                    :margin
-                      :left -100%
               
+                  > aside
+                    :position absolute
+                    :width 200%
+                    :height 100%
+                    :top 0
+                    :left 100% + (100% / 3)
+          
+                    > ul
+                      :height 100%
+                      :white-space nowrap
+                      :overflow hidden
+                      +children-inline
+            
+                      > li
+                        :position relative
+                        :z-index 1
+                        :width 100%
+                        :height 100%
+                        :background $black no-repeat center
+                        +background-size(cover)
+                        +box-shadow(inset 0 0 15px rgba(0, 0, 0, 0.6))
+                        +children-inline
+              
+                        > a
+                          :position absolute
+                          :width 50%
+                          :height 100%
+                          +opacity(0)
+                
+                          &:before
+                            :content ''
+                            :position absolute
+                            :width $baseline * 2
+                            :height $baseline * 2
+                            :top 50%
+                            :margin
+                              :top -$baseline
+                            :background
+                              :color $white
+                            :background rgba(255, 255, 255, 0.6) url("{{ "/images/icons/arrow.png" | prepend: site.baseurl }}") center
+                            +background-size(cover)
+                            +border-radius($baseline)
+                            +box-shadow(inset 0 0 15px rgba(0, 0, 0, 0.25))
+                
+                          &.left
+                            :left 0
+                  
+                            &:before
+                              :left $ninesixty_gutter_width * 2
+                              +rotate(180)
+                
+                          &.right
+                            :right 0
+                  
+                            &:before
+                              :right $ninesixty_gutter_width * 2
+                
+                          &:hover
+                            +opacity(1)
+              
+                        &.active
+                          :z-index 2
+                          +opacity(1)
+                          :-webkit-animation-duration .75s
+                          :animation-duration .75s
+                          :-webkit-animation-name vanishIn
+                          :animation-name vanishIn
+              
+                        &:not(.active)
+                          +opacity(0)
+                          :-webkit-animation-duration .75s
+                          :animation-duration .75s
+                          :-webkit-animation-name vanishOut
+                          :animation-name vanishOut
+              
+                        & ~ li
+                          :margin
+                            :left -100%
+            
+                      & + *
+                        :margin
+                          :top $baseline / 2
+            
                 & + *
                   :margin
-                    :top $baseline / 2
-            
-              > h3
-                :line-height $baseline * 2
-                :font
-                  :size $baseline * 1.5
-                  :family "RistrettoSlabPro Medium", display
-                  :weight medium
-                :text
-                  :align left
-              
-                > span
-                  :font
-                    :family "RistrettoSlabPro", display
-                    :weight normal
-            
-              > p
-                :text
-                  :align left
-                :font
-                  :family "RistrettoSlabPro Medium", display
-                  :weight medium
-              
-                > span
-                  :font
-                    :family "RistrettoSlabPro", display
-                    :weight normal
+                    :left $ninesixty_gutter_width * 4
         
           & + *
             :margin
@@ -907,6 +933,9 @@ $footer: $baseline * 4
           :top $header
 
     > #welcome > .wrapper > .content
+      > p.short
+        :width $min_width
+      
       .map + *
         :margin
           :top $baseline * 2
@@ -922,8 +951,48 @@ $footer: $baseline * 4
           :margin
             :top $baseline * 2
       
-      > ul.masters > li
-        :width 50%
+      > ul.masters
+        > li
+          :width 50%
+        
+        &.list > li
+          > div, > a
+            :width 100%
+            
+            > .photo > aside, > h3, > p
+              :width 100%
+              :position relative
+              :left 0
+              :bottom 0
+            
+            > .photo
+              :overflow hidden
+              
+              > img + aside
+                :margin
+                  :top $baseline
+              
+              > aside
+                :height $baseline * 30
+                
+                &:before
+                  :content ''
+                  :z-index 1
+                  :position absolute
+                  :height $baseline
+                  :width 100%
+                  :top -$baseline
+                  :left 0
+                  :background $white
+                  +box-shadow(0 0 15px rgba(0, 0, 0, 0.6))
+            
+            > h3
+              :margin
+                :top $baseline
+            
+            > h3, > p
+              :text
+                :align center
     
     > footer
       :font

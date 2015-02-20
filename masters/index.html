@@ -10,32 +10,34 @@ navigation: masters
     {% for master in site.data.masters %}
       <li id="master{{ forloop.index }}">
         <div>
-          <div class="photo"><img src="{{ site.baseurl }}/images/masters/{{ master.photo }}" /></div>
+          <div class="photo">
+            <img src="{{ site.baseurl }}/images/masters/{{ master.photo }}" />
+            <aside>
+              <ul ng-init="{{master.gallery_folder}}_gallery = {active: '{{ master.photos[0] }}'}">
+                {% for photo in master.photos %}
+                  <li ng-class="{ active: {{master.gallery_folder}}_gallery.active == '{{ photo }}' }" style='background-image: url("{{ site.baseurl }}/images/masters/{{ master.gallery_folder }}/{{ photo }}");'>
+                    {% unless forloop.first %}
+                      <a ng-click="{{master.gallery_folder}}_gallery.active = '{{ prev }}'" class="left"></a>
+                    {% endunless %}
+                    {% unless forloop.last %}
+                      {% assign next = master.photos[forloop.index] %}
+                      <a ng-click="{{master.gallery_folder}}_gallery.active = '{{ next }}'" class="right"></a>
+                    {% endunless %}
+                  </li>
+                  {% assign prev = photo %}
+                {% endfor %}
+              </ul>
+            </aside>
+          </div>
           <h2>{{ master.name }}</h2>
           <span>{{ master.type }}</span>
-        </div>
-        <aside>
-          <ul ng-init="{{master.gallery_folder}}_gallery = {active: '{{ master.photos[0] }}'}">
-            {% for photo in master.photos %}
-              <li ng-class="{ active: {{master.gallery_folder}}_gallery.active == '{{ photo }}' }" style='background-image: url("{{ site.baseurl }}/images/masters/{{ master.gallery_folder }}/{{ photo }}");'>
-                {% unless forloop.first %}
-                  <a ng-click="{{master.gallery_folder}}_gallery.active = '{{ prev }}'" class="left"></a>
-                {% endunless %}
-                {% unless forloop.last %}
-                  {% assign next = master.photos[forloop.index] %}
-                  <a ng-click="{{master.gallery_folder}}_gallery.active = '{{ next }}'" class="right"></a>
-                {% endunless %}
-              </li>
-              {% assign prev = photo %}
-            {% endfor %}
-          </ul>
           {% if master.experience %}
             <h3>Опыт работы: <span>{{ master.experience }}</span></h3>
           {% endif %}
           {% if master.styles %}
             <p>Любимые стили: <span>{{ master.styles }}</span></p>
           {% endif %}
-        </aside>
+        </div>
       </li>
     {% endfor %}
   </ul>
