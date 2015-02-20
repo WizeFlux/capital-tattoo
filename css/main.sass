@@ -12,8 +12,9 @@ $ninesixty_gutter_width: $baseline / 2
 $ninesixty_grid_width: 100%
 $ninesixty_columns: 8
 
-$free_space: $ninesixty_gutter_width * 4
-$min_width: $ninesixty_gutter_width * 96
+$min_width: 90%
+$max_width: $ninesixty_gutter_width * 140
+$free_space: (100% - $min_width) / 2
 
 @-webkit-keyframes vanishIn
   0%
@@ -66,7 +67,6 @@ $min_width: $ninesixty_gutter_width * 96
 html
   :position relative
   :min-height 100%
-  :min-width $min_width + $free_space
   :height 100%
   :background $white
   :font
@@ -107,7 +107,11 @@ $footer: $baseline * 4
     +box-shadow(0 0 15px rgba(0, 0, 0, 0.6))
     
     > h1
-      +grid-container($min_width)
+      :width $min_width
+      :max-width $max_width
+      :margin
+        :left auto
+        :right auto
       :height $header
       +children-inline
       
@@ -123,7 +127,11 @@ $footer: $baseline * 4
           :top -$header
     
     > aside
-      +grid-container($min_width)
+      :width $min_width
+      :max-width $max_width
+      :margin
+        :left auto
+        :right auto
       :height $header
       :text
         :align right
@@ -285,7 +293,11 @@ $footer: $baseline * 4
         +box-shadow(0 0 15px rgba(0, 0, 0, 0.6))
       
         > h2
-          +grid-container($min_width)
+          :width $min_width
+          :max-width $max_width
+          :margin
+            :left auto
+            :right auto
           :line-height $baseline * 2
           :font
             :size $baseline * 2
@@ -307,7 +319,11 @@ $footer: $baseline * 4
               :top $baseline * 1.5
       
         > p
-          +grid-container($min_width)
+          :width $min_width
+          :max-width $max_width
+          :margin
+            :left auto
+            :right auto
           :line-height $baseline * 1.5
           :text
             :align justify
@@ -381,7 +397,11 @@ $footer: $baseline * 4
             :height 100%
       
         .map
-          +grid-container($min_width)
+          :width $min_width
+          :max-width $max_width
+          :margin
+            :left auto
+            :right auto
           :border 1px solid $grey
           :height $baseline * 22.5
         
@@ -393,7 +413,11 @@ $footer: $baseline * 4
               :top $baseline
       
         .info
-          +grid-container($min_width)
+          :width $min_width
+          :max-width $max_width
+          :margin
+            :left auto
+            :right auto
           :text
             :align justify
           +children-inline
@@ -409,12 +433,10 @@ $footer: $baseline * 4
                 :size $baseline * 1.5
                 :family "RistrettoSlabPro Medium", display
                 :weight medium
-              :border
-                :bottom 1px solid $grey
             
               & + *
                 :margin
-                  :top $baseline
+                  :top $baseline / 2
           
             > p
               :line-height $baseline * 1.5
@@ -450,7 +472,12 @@ $footer: $baseline * 4
                 :align right
       
         > ul.masters
-          +grid-container($min_width + $ninesixty_gutter_width * 3)
+          :width $min_width
+          :width calc(#{$min_width} + #{$ninesixty_gutter_width * 3})
+          :max-width $max_width
+          :margin
+            :left auto
+            :right auto
           :margin
             :top -$baseline * 2
           :text
@@ -458,27 +485,26 @@ $footer: $baseline * 4
           +children-inline
         
           > li
-            :width $ninesixty_gutter_width * 30
+            :width (100% / 3)
             :margin
               :top $baseline
-              :left $ninesixty_gutter_width * 1.5
-              :right $ninesixty_gutter_width * 1.5
             :padding
               :top $baseline
           
             > a, > div
               :display block
-              :width $ninesixty_gutter_width * 30
+              :width 100%
+              :padding
+                :left $ninesixty_gutter_width * 1.5
+                :right $ninesixty_gutter_width * 1.5
             
               > .photo
                 :position relative
                 :width 100%
-                :height $baseline * 22.5
               
                 > img
                   :display block
                   :width 100%
-                  :height 100%
               
                 &:before
                   :content ''
@@ -528,7 +554,7 @@ $footer: $baseline * 4
                   :left $ninesixty_gutter_width * 4
           
             > aside
-              :width $min_width - $ninesixty_gutter_width * 34
+              // :width $min_width - $ninesixty_gutter_width * 34
             
               > ul
                 :height $baseline * 22.5
@@ -637,34 +663,37 @@ $footer: $baseline * 4
               :top $baseline
       
         > ul.services
-          +grid-container($min_width + $ninesixty_gutter_width * 4)
+          :width $min_width
+          :width calc(#{$min_width} + #{$ninesixty_gutter_width * 4})
+          :max-width $max_width
           :margin
+            :left auto
+            :right auto
             :top -$baseline * 2
           :text
             :align center
           +children-inline
         
           > li
-            :width $ninesixty_gutter_width * 21
+            :width 25%
             :margin
               :top $baseline * 2
-              :left $ninesixty_gutter_width * 2
-              :right $ninesixty_gutter_width * 2
           
             > a
               :display block
               :width 100%
+              :padding
+                :left $ninesixty_gutter_width * 2
+                :right $ninesixty_gutter_width * 2
             
               > .photo
                 :position relative
                 :width 100%
-                :height $baseline * 15.75
                 +opacity(0.9)
               
                 > img
                   :display block
                   :width 100%
-                  :height 100%
               
                 &:before
                   :content ''
@@ -699,7 +728,11 @@ $footer: $baseline * 4
               :top $baseline
         
         > ul.gallery
-          +grid-container($min_width)
+          :width $min_width
+          :max-width $max_width
+          :margin
+            :left auto
+            :right auto
           :height 100%
           :white-space nowrap
           :overflow hidden
@@ -785,7 +818,11 @@ $footer: $baseline * 4
         :top -$footer
   
   > footer
-    +grid-container($min_width)
+    :width $min_width
+    :max-width $max_width
+    :margin
+      :left auto
+      :right auto
     :text
       :align center
     :height $footer
@@ -797,8 +834,108 @@ $footer: $baseline * 4
   &:hover
     +opacity(1)
 
-@for $i from 1 to 4
-  @media only screen and (max-width: (6 - $i) * 250px)
-    html
+@media only screen and (max-width: 1000px)
+  #container > #welcome > .wrapper > .content > ul.services > li
+    :width 50%
+    
+@media only screen and (max-width: 750px)
+  $header: $baseline * 3
+
+  #container
+    > header
+      :height $header
+
+      > h1
+        +opacity(0)
+        :visibility hidden
+        :height $header
+  
+        > a
+          :height $header
+  
+        & + aside
+          :margin
+            :top -$header
+
+      > aside
+        :height $header
+  
+        > nav
+          :width 100%
+          :margin
+            :top ($header - $baseline * 2) / 2
+            :bottom $header / 2
+    
+          > li
+            :width 20%
+            :text
+              :align center
+      
+            > a
+              :overflow hidden
+              :font
+                :size $baseline * 0.9
+      
+            > ul
+              :padding
+                :top $baseline / 4
+        
+              > li > a
+                :font
+                  :size $baseline * 0.8
+        
+              &.four > li
+                :width 25%
+          
+                & + li
+                  :margin
+                    :left 0
+        
+              &.full > li
+                :width 100%
+                :text
+                  :align center
+      
+            & + li
+              :margin
+                :left 0
+
+      & + *
+        :margin
+          :top -$header
+        :padding
+          :top $header
+
+    > #welcome > .wrapper > .content
+      .map + *
+        :margin
+          :top $baseline * 2
+      
+      .info > div
+        :width 100%
+        
+        > h3, > p
+          :text
+            :align center
+        
+        & + div
+          :margin
+            :top $baseline * 2
+      
+      > ul.masters > li
+        :width 50%
+    
+    > footer
       :font
-        :size (5 - $i) * $base / 4
+        :size $baseline * 0.8
+
+@media only screen and (max-width: 600px)
+  #container > footer
+    :font
+      :size $baseline * 0.5
+                
+@media only screen and (max-width: 500px)
+  #container > #welcome > .wrapper > .content
+    > ul.masters, > ul.services
+      > li
+        :width 100%

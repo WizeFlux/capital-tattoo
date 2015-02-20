@@ -10,13 +10,13 @@
       </li>
       <li class="{% if page.navigation == 'masters' %}{{ 'active' }}{% endif %} {% if page.navigation == 'gallery' %}{{ 'children-active' }}{% endif %} relative">
         <a href="{{ "/masters" | prepend: site.baseurl }}">Мастера</a>
-        <ul class="left">
+        <ul class="full left">
           <li><a href="{{ "/gallery" | prepend: site.baseurl }}" class="{% if page.navigation == 'gallery' %}{{ 'active' }}{% endif %}">Галерея</a></li>
         </ul>
       </li>
       <li class="{% if page.navigation == 'services' %}{{ 'active' }}{% endif %}">
         <a href="{{ "/services" | prepend: site.baseurl }}">Услуги</a>
-        <ul>
+        <ul class="four">
           {% for service in site.data.services %}
             <li><a href="{{ site.baseurl }}/services/#{{ service.id }}" du-smooth-scroll du-scrollspy="{{ service.id }}">{{ service.short_title }}</a></li>
           {% endfor %}
