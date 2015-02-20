@@ -3,35 +3,12 @@ layout: default
 navigation: services
 ---
 
-<div id="welcome">
-  <div class="content full">
-    <h2>Услуги</h2>
-    <br />
-    <ul class="services">
-      <li>
-        <a href="#">
-          <div class="photo"><img src="{{ "/assets/images/services/tattoo.jpg" | prepend: site.baseurl }}" /></div>
-          <h2>Художественная татуировка</h2>
-        </a>
-      </li>
-      <li>
-        <a href="#">
-          <div class="photo"><img src="{{ "/assets/images/services/piercing.jpg" | prepend: site.baseurl }}" /></div>
-          <h2>Пирсинг любых частей тела</h2>
-        </a>
-      </li>
-      <li>
-        <a href="#">
-          <div class="photo"><img src="{{ "/assets/images/services/makeup.jpg" | prepend: site.baseurl }}" /></div>
-          <h2>Перманентный макияж</h2>
-        </a>
-      </li>
-      <li>
-        <a href="#">
-          <div class="photo"><img src="{{ "/assets/images/services/lazer.jpg" | prepend: site.baseurl }}" /></div>
-          <h2>Лазерное удаление татуировки</h2>
-        </a>
-      </li>
-    </ul>
+{% for service in site.data.services %}
+  <div class="picture service-{{forloop.index}}"></div>
+  <div class="content">
+    <h2>{{ service.title }}</h2>
+    {% for text in service.text %}
+      <p>{{ text }}</p>
+    {% endfor %}
   </div>
-</div>
+{% endfor %}

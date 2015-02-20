@@ -3,131 +3,74 @@ layout: default
 navigation: main
 ---
 
-<div id="welcome">
-  <div class="picture first"></div>
-  <div class="content">
-    <h2>О студии</h2>
-    <p>Добро пожаловать на сайт Московской студии художественной татуировки и пирсинга «Capital Tattoo». Мы познакомим вас с профессиональными мастерами своего дела, предоставим высокий уровень комфорта, гарантируем стерильные условия и положительные эмоции. В перечень наших услуг входят: услуги по созданию художественной татуировки, исправление некачественных татуировок, удаление татуировок, пирсинг, татуаж, уделение татуажа.</p>
-    <p>Традиционно, каждому клиенту нащей студии мы дарим бесплатную консультацию и вводную лекцию по интересующему направлению современной модификации своего тела. Индивидуальный подход и высокий уровень профессионализма - нерушимые принципы работы Capital Tattoo. Но это лишь половина на пути к успеху, вторая половина это вы и ваши идеи. Наши двери для гостей открыты каждый день. До нас можно дозвониться 24 часа в сутки. Нам можно задать любой вопрос и получить на него незамедлительный ответ. Ну и самое главное - наши цены вас приятно удивят.</p>
+<div class="picture first"></div>
+<div class="content">
+  <h2>О студии</h2>
+  {% for text in site.data.about %}
+   <p>{{ text }}</p>
+  {% endfor %}
+</div>
+<div class="picture second"></div>
+<div class="content">
+  <h2>Мастера</h2>
+  <br />
+  <ul class="masters">
+    {% for master in site.data.masters %}
+      <li>
+        <a href="{{ site.baseurl }}/masters#master-{{ forloop.index }}">
+          <div class="photo"><img src="{{ site.baseurl }}/images/masters/{{ master.photo }}" /></div>
+          <h2>{{ master.name }}</h2>
+          <span>{{ master.type }}</span>
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+</div>
+<div class="picture third"></div>
+<div class="content">
+  <h2>Услуги</h2>
+  <br />
+  <ul class="services">
+    {% for service in site.data.services %}
+      <li>
+        <a href="#">
+          <div class="photo"><img src="{{ site.baseurl }}/images/services/{{ service.photo }}" /></div>
+          <h2>{{ service.title }}</h2>
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+</div>
+<div class="picture fourth"></div>
+<div class="content">
+  <h2>Контакты</h2>
+  <div class="map">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2244.4613964331525!2d37.656914999999984!3d55.767858!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46b54a7d580ba16d%3A0x252cf25f53ff982d!2sBasmannyy+tup.%2C+10%2F12%2C+Moskva%2C+Russia%2C+105064!5e0!3m2!1sen!2sus!4v1423795855656" width="100%" height="100%" frameborder="0" style="border:0"></iframe>
   </div>
-  <div class="picture second"></div>
-  <div class="content">
-    <h2>Мастера</h2>
-    <br />
-    <ul class="masters">
-      <li>
-        <a href="#">
-          <div class="photo"><img src="{{ "/assets/images/masters/valeriy_silin.jpg" | prepend: site.baseurl }}" /></div>
-          <h2>Валерий Силин</h2>
-          <span>Тату мастер</span>
-        </a>
-      </li>
-      <li>
-        <a href="#">
-          <div class="photo"><img src="{{ "/assets/images/masters/dmitry_zotov.jpg" | prepend: site.baseurl }}" /></div>
-          <h2>Дмитрий Зотов</h2>
-          <span>Тату мастер</span>
-        </a>
-      </li>
-      <li>
-        <a href="#">
-          <div class="photo"><img src="{{ "/assets/images/masters/victoria_nordic.jpg" | prepend: site.baseurl }}" /></div>
-          <h2>Виктория Нордик</h2>
-          <span>Тату мастер</span>
-        </a>
-      </li>
-      <li>
-        <a href="#">
-          <div class="photo"><img src="{{ "/assets/images/masters/merk.jpg" | prepend: site.baseurl }}" /></div>
-          <h2>Merk</h2>
-          <span>Тату мастер</span>
-        </a>
-      </li>
-      <li>
-        <a href="#">
-          <div class="photo"><img src="{{ "/assets/images/masters/roma.jpg" | prepend: site.baseurl }}" /></div>
-          <h2>Роман</h2>
-          <span>Тату мастер</span>
-        </a>
-      </li>
-      <li>
-        <a href="#">
-          <div class="photo"><img src="{{ "/assets/images/masters/tanya_surikova.jpg" | prepend: site.baseurl }}" /></div>
-          <h2>Татьяна Сурикова</h2>
-          <span>Тату мастер</span>
-        </a>
-      </li>
-      <li>
-        <a href="#">
-          <div class="photo"><img src="{{ "/assets/images/masters/julia_zaharova.jpg" | prepend: site.baseurl }}" /></div>
-          <h2>Юлия Захарова</h2>
-          <span>Татуаж мастер</span>
-        </a>
-      </li>
-    </ul>
-  </div>
-  <div class="picture third"></div>
-  <div class="content">
-    <h2>Услуги</h2>
-    <br />
-    <ul class="services">
-      <li>
-        <a href="#">
-          <div class="photo"><img src="{{ "/assets/images/services/tattoo.jpg" | prepend: site.baseurl }}" /></div>
-          <h2>Художественная татуировка</h2>
-        </a>
-      </li>
-      <li>
-        <a href="#">
-          <div class="photo"><img src="{{ "/assets/images/services/piercing.jpg" | prepend: site.baseurl }}" /></div>
-          <h2>Пирсинг любых частей тела</h2>
-        </a>
-      </li>
-      <li>
-        <a href="#">
-          <div class="photo"><img src="{{ "/assets/images/services/makeup.jpg" | prepend: site.baseurl }}" /></div>
-          <h2>Перманентный макияж</h2>
-        </a>
-      </li>
-      <li>
-        <a href="#">
-          <div class="photo"><img src="{{ "/assets/images/services/lazer.jpg" | prepend: site.baseurl }}" /></div>
-          <h2>Лазерное удаление татуировки</h2>
-        </a>
-      </li>
-    </ul>
-  </div>
-  <div class="picture fourth"></div>
-  <div class="content">
-    <h2>Контакты</h2>
-    <div class="map">
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2244.4613964331525!2d37.656914999999984!3d55.767858!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46b54a7d580ba16d%3A0x252cf25f53ff982d!2sBasmannyy+tup.%2C+10%2F12%2C+Moskva%2C+Russia%2C+105064!5e0!3m2!1sen!2sus!4v1423795855656" width="100%" height="100%" frameborder="0" style="border:0"></iframe>
+  <div class="info">
+    <div>
+      <h3>Время работы</h3>
+      <p>
+        Пн. – пт.: 10:00–22:00<br />
+        ​​Суббота: 11:00–22:00<br />
+        Воскресенье: 12:00–23:00
+      </p>
     </div>
-    <div class="info">
-      <div>
-        <h3>Время работы</h3>
-        <p>
-          Пн. – пт.: 10:00–22:00<br />
-          ​​Суббота: 11:00–22:00<br />
-          Воскресенье: 12:00–23:00
-        </p>
-      </div>
-      <div class="center">
-        <h3>Адрес салона в Москве</h3>
-        <p>
-          г. Москва, 126200<br />
-          ул. Басманный тупик, 10/12<br />
-          отдельный вход с торца дома
-        </p>
-      </div>
-      <div class="right">
-        <h3>Номера для связи</h3>
-        <p>
-          Тел.: <a href="callto:+79255171040"><span>+7 (925) 517-10-40</span></a><br />
-          Факс: <a href="callto:+74955171040"><span>+7 (495) 517-10-40</span></a><br />
-          <a href="mailto:capital-tattoo@mail.ru"><span>capital-tattoo@mail.ru</span></a>
-        </p>
-      </div>
+    <div class="center">
+      <h3>Адрес салона в Москве</h3>
+      <p>
+        г. Москва, 126200<br />
+        ул. Басманный тупик, 10/12<br />
+        отдельный вход с торца дома
+      </p>
+    </div>
+    <div class="right">
+      <h3>Номера для связи</h3>
+      <p>
+        Тел.: <a href="callto:+79255171040"><span>+7 (925) 517-10-40</span></a><br />
+        Факс: <a href="callto:+74955171040"><span>+7 (495) 517-10-40</span></a><br />
+        <a href="mailto:capital-tattoo@mail.ru"><span>capital-tattoo@mail.ru</span></a>
+      </p>
     </div>
   </div>
 </div>

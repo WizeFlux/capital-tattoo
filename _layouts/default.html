@@ -1,10 +1,14 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="CapitalTattoo">
   {% include head.html %}
-  <body>
+  <body ng-controller="WelcomeController">
     <div id="container">
       {% include header.html %}
-      {{ content }}
+      <div id="welcome">
+        <div class="wrapper">
+          {{ content }}
+        </div>
+      </div>
       {% include footer.html %}
     </div>
   </body>

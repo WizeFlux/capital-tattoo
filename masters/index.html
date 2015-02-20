@@ -3,60 +3,40 @@ layout: default
 navigation: masters
 ---
 
-<div id="welcome">
-  <div class="content full">
-    <h2>Мастера</h2>
-    <br />
-    <ul class="masters">
-      <li>
-        <a href="#">
-          <div class="photo"><img src="{{ "/assets/images/masters/valeriy_silin.jpg" | prepend: site.baseurl }}" /></div>
-          <h2>Валерий Силин</h2>
-          <span>Тату мастер</span>
-        </a>
+<div class="content full">
+  <h2>Мастера</h2>
+  <br />
+  <ul class="masters list">
+    {% for master in site.data.masters %}
+      <li id="master-{{ forloop.index }}">
+        <div>
+          <div class="photo"><img src="{{ site.baseurl }}/images/masters/{{ master.photo }}" /></div>
+          <h2>{{ master.name }}</h2>
+          <span>{{ master.type }}</span>
+        </div>
+        <aside>
+          <ul ng-init="{{master.gallery_folder}}_gallery = {active: '{{ master.photos[0] }}'}">
+            {% for photo in master.photos %}
+              <li ng-class="{ active: {{master.gallery_folder}}_gallery.active == '{{ photo }}' }" style='background-image: url("{{ site.baseurl }}/images/masters/{{ master.gallery_folder }}/{{ photo }}");'>
+                {% unless forloop.first %}
+                  <a ng-click="{{master.gallery_folder}}_gallery.active = '{{ prev }}'" class="left"></a>
+                {% endunless %}
+                {% unless forloop.last %}
+                  {% assign next = master.photos[forloop.index] %}
+                  <a ng-click="{{master.gallery_folder}}_gallery.active = '{{ next }}'" class="right"></a>
+                {% endunless %}
+              </li>
+              {% assign prev = photo %}
+            {% endfor %}
+          </ul>
+          {% if master.experience %}
+            <h3>Опыт работы: <span>{{ master.experience }}</span></h3>
+          {% endif %}
+          {% if master.styles %}
+            <p>Любимые стили: <span>{{ master.styles }}</span></p>
+          {% endif %}
+        </aside>
       </li>
-      <li>
-        <a href="#">
-          <div class="photo"><img src="{{ "/assets/images/masters/dmitry_zotov.jpg" | prepend: site.baseurl }}" /></div>
-          <h2>Дмитрий Зотов</h2>
-          <span>Тату мастер</span>
-        </a>
-      </li>
-      <li>
-        <a href="#">
-          <div class="photo"><img src="{{ "/assets/images/masters/victoria_nordic.jpg" | prepend: site.baseurl }}" /></div>
-          <h2>Виктория Нордик</h2>
-          <span>Тату мастер</span>
-        </a>
-      </li>
-      <li>
-        <a href="#">
-          <div class="photo"><img src="{{ "/assets/images/masters/merk.jpg" | prepend: site.baseurl }}" /></div>
-          <h2>Merk</h2>
-          <span>Тату мастер</span>
-        </a>
-      </li>
-      <li>
-        <a href="#">
-          <div class="photo"><img src="{{ "/assets/images/masters/roma.jpg" | prepend: site.baseurl }}" /></div>
-          <h2>Роман</h2>
-          <span>Тату мастер</span>
-        </a>
-      </li>
-      <li>
-        <a href="#">
-          <div class="photo"><img src="{{ "/assets/images/masters/tanya_surikova.jpg" | prepend: site.baseurl }}" /></div>
-          <h2>Татьяна Сурикова</h2>
-          <span>Тату мастер</span>
-        </a>
-      </li>
-      <li>
-        <a href="#">
-          <div class="photo"><img src="{{ "/assets/images/masters/julia_zaharova.jpg" | prepend: site.baseurl }}" /></div>
-          <h2>Юлия Захарова</h2>
-          <span>Татуаж мастер</span>
-        </a>
-      </li>
-    </ul>
-  </div>
+    {% endfor %}
+  </ul>
 </div>

@@ -1,0 +1,69 @@
+- name: Валерий Силин
+  type: Тату мастер
+  photo: valeriy_silin.jpg
+  experience: 6 лет
+  styles: надписи, футбольные татуировки
+  gallery_folder: valeriy_silin
+  photos:
+    - tattoo1.jpg
+    - tattoo2.jpg
+    - tattoo3.jpg
+
+- name: Дмитрий Зотов
+  type: Тату мастер
+  photo: dmitry_zotov.jpg
+  experience: 16 лет
+  gallery_folder: dmitry_zotov
+  photos:
+    - tattoo1.jpg
+    - tattoo2.jpg
+    - tattoo3.jpg
+
+- name: Виктория Нордик
+  type: Тату мастер
+  photo: victoria_nordic.jpg
+  experience: 3 года
+  styles: old school, neo traditional, new school
+  gallery_folder: victoria_nordic
+  photos:
+    - tattoo1.jpg
+    - tattoo2.jpg
+    - tattoo3.jpg
+
+- name: Merk
+  type: Тату мастер
+  photo: merk.jpg
+  experience: 4 года
+  styles: Black & Grey Realism
+  gallery_folder: merk
+  photos:
+    - tattoo1.jpg
+    - tattoo2.jpg
+    - tattoo3.jpg
+
+- name: Роман
+  type: Тату мастер
+  photo: roma.jpg
+  gallery_folder: roma
+  photos:
+    - tattoo1.jpg
+    - tattoo2.jpg
+    - tattoo3.jpg
+
+- name: Татьяна Сурикова
+  type: Тату мастер
+  photo: tanya_surikova.jpg
+  gallery_folder: tanya_surikova
+  photos:
+    - tattoo1.jpg
+    - tattoo2.jpg
+    - tattoo3.jpg
+
+- name: Юлия Захарова
+  type: Татуаж мастер
+  photo: julia_zaharova.jpg
+  gallery_folder: julia_zaharova
+  photos:
+    - photo1.jpg
+    - photo2.jpg
+    - photo3.jpg

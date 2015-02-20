@@ -15,6 +15,54 @@ $ninesixty_columns: 8
 $free_space: $ninesixty_gutter_width * 4
 $min_width: $ninesixty_gutter_width * 96
 
+@-webkit-keyframes vanishIn
+  0%
+    :opacity 0
+    :-webkit-transform-origin 50% 50%
+    :-webkit-transform scale(2, 2)
+
+  100%
+    :opacity 1
+    :-webkit-transform-origin 50% 50%
+    :-webkit-transform scale(1, 1)
+
+@keyframes vanishIn
+  0%
+    :opacity 0
+    :transform-origin 50% 50%
+    :transform scale(2, 2)
+
+  100%
+    :opacity 1
+    :transform-origin 50% 50%
+    :transform scale(1, 1)
+
+@-webkit-keyframes vanishOut
+  0%
+    :opacity 1
+    :-webkit-transform-origin 50% 50%
+    :-webkit-transform scale(1, 1)
+    :-webkit-filter blur(0px)
+
+  100%
+    :opacity 0
+    :-webkit-transform-origin 50% 50%
+    :-webkit-transform scale(2, 2)
+    :-webkit-filter blur(10px)
+
+@keyframes vanishOut
+  0%
+    :opacity 1
+    :transform-origin 50% 50%
+    :transform scale(1, 1)
+    :-webkit-filter blur(0px)
+
+  100%
+    :opacity 0
+    :transform-origin 50% 50%
+    :transform scale(2, 2)
+    :-webkit-filter blur(10px)
+
 html
   :position relative
   :min-height 100%
@@ -34,7 +82,7 @@ html, html a
 
 *, *:before, *:after
   +box-sizing
-  +transition(opacity .2s ease-in-out)
+  +transition(opacity .75s ease-in-out)
 
 body
   :line-height $baseline
@@ -67,7 +115,7 @@ $footer: $baseline * 4
         :width $logo
         :height $header
         +indented
-        :background url("{{ "/assets/images/icons/logo.jpg" | prepend: site.baseurl }}") no-repeat center
+        :background url("{{ "/images/icons/logo.jpg" | prepend: site.baseurl }}") no-repeat center
         +background-size(100%)
       
       & + nav
@@ -111,306 +159,460 @@ $footer: $baseline * 4
         :top -$header
       :padding
         :top $header
-      :overflow overlay
+      
+      > .wrapper
+        :height 100%
+        :overflow overlay
   
   > #welcome
     :position relative
-    :padding
-      :bottom $footer
     
-    > .picture
-      :height 110%
-      :height calc(100% + #{$footer - $baseline})
-      :background
-        :repeat no-repeat
-        :attachment fixed
-        :position center top
-      +background-size(cover)
-      
-      &.first
-        :background
-          :image url("{{ "/assets/images/backgrounds/main/first.jpg" | prepend: site.baseurl }}")
-      
-      &.second
-        :background
-          :image url("{{ "/assets/images/backgrounds/main/second.jpg" | prepend: site.baseurl }}")
-      
-      &.third
-        :background
-          :image url("{{ "/assets/images/backgrounds/main/third.jpg" | prepend: site.baseurl }}")
-      
-      &.fourth
-        :background
-          :image url("{{ "/assets/images/backgrounds/main/fourth.jpg" | prepend: site.baseurl }}")
-    
-    > .content
-      :position relative
+    > .wrapper
       :padding
-        :top $baseline * 2
-        :bottom $baseline * 4
-      :background $white
-      +box-shadow(0 0 15px rgba(0, 0, 0, 0.6))
+        :bottom $footer
       
-      > h2
-        +grid-container($min_width)
-        :line-height $baseline * 2
-        :font
-          :size $baseline * 2
-          :family "RistrettoSlabPro Medium", display
-          :weight medium
-        :text
-          :align center
-        
-        &.right
-          :text
-            :align right
-        
-        & + *
-          :margin
-            :top $baseline * 1.5
+      > .picture
+        :height 110%
+        :height calc(100% + #{$footer - $baseline})
+        :background
+          :repeat no-repeat
+          :attachment fixed
+          :position center top
+        +background-size(cover)
       
-      > p
-        +grid-container($min_width)
-        :line-height $baseline * 1.5
-        :text
-          :align justify
-        
-        > a
-          +inline-block
-          :height $baseline * 1.5
-          :line-height $baseline
-          :padding
-            :top $baseline / 4
-            :bottom $baseline / 4
-          :color $black
-          +transition-property(opacity, color)
-          
-          > span
-            :display block
-            :border
-              :bottom 1px solid $grey
-          
-          &:hover
-            :color $grey
-        
-        &.center
+        &.first
+          :background
+            :image url("{{ "/images/backgrounds/main/first.jpg" | prepend: site.baseurl }}")
+      
+        &.second
+          :background
+            :image url("{{ "/images/backgrounds/main/second.jpg" | prepend: site.baseurl }}")
+      
+        &.third
+          :background
+            :image url("{{ "/images/backgrounds/main/third.jpg" | prepend: site.baseurl }}")
+      
+        &.fourth
+          :background
+            :image url("{{ "/images/backgrounds/main/fourth.jpg" | prepend: site.baseurl }}")
+      
+        &.service-1
+          :background
+            :image url("{{ "/images/backgrounds/services/1.jpg" | prepend: site.baseurl }}")
+      
+        &.service-2
+          :background
+            :image url("{{ "/images/backgrounds/services/2.jpg" | prepend: site.baseurl }}")
+      
+        &.service-3
+          :background
+            :image url("{{ "/images/backgrounds/services/3.jpg" | prepend: site.baseurl }}")
+      
+        &.service-4
+          :background
+            :image url("{{ "/images/backgrounds/services/4.jpg" | prepend: site.baseurl }}")
+    
+      > .content
+        :position relative
+        :padding
+          :top $baseline * 2
+          :bottom $baseline * 4
+        :background $white
+        +box-shadow(0 0 15px rgba(0, 0, 0, 0.6))
+      
+        > h2
+          +grid-container($min_width)
+          :line-height $baseline * 2
+          :font
+            :size $baseline * 2
+            :family "RistrettoSlabPro Medium", display
+            :weight medium
           :text
             :align center
         
-        &.right
-          :text
-            :align right
-        
-        & + *
-          :margin
-            :top $baseline
-      
-      .logo
-        :margin
-          :top $baseline * 3
-        :height $baseline * 8
-        :text
-          :align center
-        +children-inline
-        
-        > img
-          :height 100%
-      
-      .map
-        +grid-container($min_width)
-        :border 1px solid $grey
-        :height $baseline * 22.5
-        
-        > iframe
-          :display block
-        
-        & + *
-          :margin
-            :top $baseline
-      
-      .info
-        +grid-container($min_width)
-        :text
-          :align justify
-        +children-inline
-        
-        > div
-          :width (100% / 3)
-          :text
-            :align left
-          
-          > h3
-            :line-height $baseline * 2
-            :font
-              :size $baseline * 1.5
-              :family "RistrettoSlabPro Medium", display
-              :weight medium
-            :border
-              :bottom 1px solid $grey
-            
-            & + *
-              :margin
-                :top $baseline
-          
-          > p
-            :line-height $baseline * 1.5
-            
-            > a
-              +inline-block
-              :height $baseline * 1.5
-              :line-height $baseline
-              :padding
-                :top $baseline / 4
-                :bottom $baseline / 4
-              :color $black
-              +transition-property(opacity, color)
-              
-              > span
-                :display block
-                :border
-                  :bottom 1px solid $grey
-              
-              &:hover
-                :color $grey
-            
-            & + *
-              :margin
-                :top $baseline
-          
-          &.center
-            :text
-              :align center
-          
           &.right
             :text
               :align right
-      
-      > ul.masters
-        +grid-container($min_width + $ninesixty_gutter_width * 3)
-        :margin
-          :top -$baseline * 2
-        :text
-          :align center
-        +children-inline
         
-        > li
-          :width $ninesixty_gutter_width * 30
-          :margin
-            :top $baseline * 2
-            :left $ninesixty_gutter_width * 1.5
-            :right $ninesixty_gutter_width * 1.5
-          
+          & + *
+            :margin
+              :top $baseline * 1.5
+      
+        > p
+          +grid-container($min_width)
+          :line-height $baseline * 1.5
+          :text
+            :align justify
+        
+          > b
+            :font
+              :family "RistrettoSlabPro Medium", display
+              :weight medium
+        
           > a
+            +inline-block
+            :height $baseline * 1.5
+            :line-height $baseline
+            :padding
+              :top $baseline / 4
+              :bottom $baseline / 4
+            :color $black
+            +transition-property(opacity, color)
+          
+            > span
+              :display block
+              :border
+                :bottom 1px solid $grey
+          
+            &:hover
+              :color $grey
+        
+          &.center
+            :text
+              :align center
+        
+          &.right
+            :text
+              :align right
+        
+          &.short
+            +grid-container($ninesixty_gutter_width * 60)
+        
+          & + *
+            :margin
+              :top $baseline
+      
+        .logo
+          :margin
+            :top $baseline * 3
+          :height $baseline * 8
+          :text
+            :align center
+          +children-inline
+        
+          > img
+            :height 100%
+      
+        .map
+          +grid-container($min_width)
+          :border 1px solid $grey
+          :height $baseline * 22.5
+        
+          > iframe
             :display block
-            :width 100%
-            
-            > .photo
-              :position relative
-              :width 100%
-              :height $baseline * 22.5
-              +opacity(0.9)
-              
-              > img
-                :display block
-                :width 100%
-                :height 100%
-              
-              &:before
-                :content ''
-                +absoluted
-                +box-shadow(inset 0 0 15px rgba(0, 0, 0, 0.6))
-              
-              & + h2
-                :margin
-                  :top $baseline / 2
-            
-            > h2
+        
+          & + *
+            :margin
+              :top $baseline
+      
+        .info
+          +grid-container($min_width)
+          :text
+            :align justify
+          +children-inline
+        
+          > div
+            :width (100% / 3)
+            :text
+              :align left
+          
+            > h3
               :line-height $baseline * 2
               :font
                 :size $baseline * 1.5
                 :family "RistrettoSlabPro Medium", display
                 :weight medium
-              +transition-property(opacity, color)
+              :border
+                :bottom 1px solid $grey
             
-            > span
-              :display block
-              +transition-property(opacity, color)
-            
-            &:hover
-              > .photo
-                +opacity(1)
-              
-              > h2, > span
-                :color $grey
-        
-        & + *
-          :margin
-            :top $baseline
-      
-      > ul.services
-        +grid-container($min_width + $ninesixty_gutter_width * 4)
-        :margin
-          :top -$baseline * 2
-        :text
-          :align center
-        +children-inline
-        
-        > li
-          :width $ninesixty_gutter_width * 21
-          :margin
-            :top $baseline * 2
-            :left $ninesixty_gutter_width * 2
-            :right $ninesixty_gutter_width * 2
-          
-          > a
-            :display block
-            :width 100%
-            
-            > .photo
-              :position relative
-              :width 100%
-              :height $baseline * 15.75
-              +opacity(0.9)
-              
-              > img
-                :display block
-                :width 100%
-                :height 100%
-              
-              &:before
-                :content ''
-                +absoluted
-                +box-shadow(inset 0 0 15px rgba(0, 0, 0, 0.6))
-              
-              & + h2
+              & + *
                 :margin
-                  :top $baseline / 2
+                  :top $baseline
+          
+            > p
+              :line-height $baseline * 1.5
             
-            > h2
-              :line-height $baseline * 2
-              :font
-                :size $baseline * 1.5
-                :family "RistrettoSlabPro Medium", display
-                :weight medium
-              +transition-property(opacity, color)
-            
-            > span
-              :display block
-              +transition-property(opacity, color)
-            
-            &:hover
-              > .photo
-                +opacity(1)
+              > a
+                +inline-block
+                :height $baseline * 1.5
+                :line-height $baseline
+                :padding
+                  :top $baseline / 4
+                  :bottom $baseline / 4
+                :color $black
+                +transition-property(opacity, color)
               
-              > h2, > span
-                :color $grey
-        
-        & + *
-          :margin
-            :top $baseline
+                > span
+                  :display block
+                  :border
+                    :bottom 1px solid $grey
+              
+                &:hover
+                  :color $grey
+            
+              & + *
+                :margin
+                  :top $baseline
+          
+            &.center
+              :text
+                :align center
+          
+            &.right
+              :text
+                :align right
       
-      &.full
-        :min-height calc(100% + #{$footer})
+        > ul.masters
+          +grid-container($min_width + $ninesixty_gutter_width * 3)
+          :margin
+            :top -$baseline * 2
+          :text
+            :align center
+          +children-inline
+        
+          > li
+            :width $ninesixty_gutter_width * 30
+            :margin
+              :top $baseline
+              :left $ninesixty_gutter_width * 1.5
+              :right $ninesixty_gutter_width * 1.5
+            :padding
+              :top $baseline
+          
+            > a, > div
+              :display block
+              :width $ninesixty_gutter_width * 30
+            
+              > .photo
+                :position relative
+                :width 100%
+                :height $baseline * 22.5
+              
+                > img
+                  :display block
+                  :width 100%
+                  :height 100%
+              
+                &:before
+                  :content ''
+                  +absoluted
+                  +box-shadow(inset 0 0 15px rgba(0, 0, 0, 0.6))
+              
+                & + *
+                  :margin
+                    :top $baseline / 2
+            
+              > h2
+                :line-height $baseline * 2
+                :font
+                  :size $baseline * 1.5
+                  :family "RistrettoSlabPro Medium", display
+                  :weight medium
+                +transition-property(opacity, color)
+            
+              > span
+                :display block
+                +transition-property(opacity, color)
+            
+            > a
+              > .photo
+                +opacity(0.9)
+            
+              &:hover
+                > .photo
+                  +opacity(1)
+            
+                > h2, > span
+                  :color $grey
+        
+          &.list > li
+            :display block
+            :width auto
+            :text
+              :align left
+            +children-inline
+          
+            > div, > a
+              :text
+                :align center
+            
+              & + *
+                :margin
+                  :left $ninesixty_gutter_width * 4
+          
+            > aside
+              :width $min_width - $ninesixty_gutter_width * 34
+            
+              > ul
+                :height $baseline * 22.5
+                :white-space nowrap
+                :overflow hidden
+                +children-inline
+              
+                > li
+                  :position relative
+                  :z-index 1
+                  :width 100%
+                  :height 100%
+                  :background $grey no-repeat center
+                  +background-size(cover)
+                  +box-shadow(inset 0 0 15px rgba(0, 0, 0, 0.6))
+                  +children-inline
+                
+                  > a
+                    :position absolute
+                    :width 50%
+                    :height 100%
+                    +opacity(0)
+                  
+                    &:before
+                      :content ''
+                      :position absolute
+                      :width $baseline * 2
+                      :height $baseline * 2
+                      :top 50%
+                      :margin
+                        :top -$baseline
+                      :background
+                        :color $white
+                      :background rgba(255, 255, 255, 0.6) url("{{ "/images/icons/arrow.png" | prepend: site.baseurl }}") center
+                      +background-size(cover)
+                      +border-radius($baseline)
+                      +box-shadow(inset 0 0 15px rgba(0, 0, 0, 0.25))
+                  
+                    &.left
+                      :left 0
+                    
+                      &:before
+                        :left $ninesixty_gutter_width * 2
+                        +rotate(180)
+                  
+                    &.right
+                      :right 0
+                    
+                      &:before
+                        :right $ninesixty_gutter_width * 2
+                  
+                    &:hover
+                      +opacity(1)
+                
+                  &.active
+                    :z-index 2
+                    +opacity(1)
+                    :-webkit-animation-duration .75s
+                    :animation-duration .75s
+                    :-webkit-animation-name vanishIn
+                    :animation-name vanishIn
+                
+                  &:not(.active)
+                    +opacity(0)
+                    :-webkit-animation-duration .75s
+                    :animation-duration .75s
+                    :-webkit-animation-name vanishOut
+                    :animation-name vanishOut
+                
+                  & ~ li
+                    :margin
+                      :left -100%
+              
+                & + *
+                  :margin
+                    :top $baseline / 2
+            
+              > h3
+                :line-height $baseline * 2
+                :font
+                  :size $baseline * 1.5
+                  :family "RistrettoSlabPro Medium", display
+                  :weight medium
+                :text
+                  :align left
+              
+                > span
+                  :font
+                    :family "RistrettoSlabPro", display
+                    :weight normal
+            
+              > p
+                :text
+                  :align left
+                :font
+                  :family "RistrettoSlabPro Medium", display
+                  :weight medium
+              
+                > span
+                  :font
+                    :family "RistrettoSlabPro", display
+                    :weight normal
+        
+          & + *
+            :margin
+              :top $baseline
+      
+        > ul.services
+          +grid-container($min_width + $ninesixty_gutter_width * 4)
+          :margin
+            :top -$baseline * 2
+          :text
+            :align center
+          +children-inline
+        
+          > li
+            :width $ninesixty_gutter_width * 21
+            :margin
+              :top $baseline * 2
+              :left $ninesixty_gutter_width * 2
+              :right $ninesixty_gutter_width * 2
+          
+            > a
+              :display block
+              :width 100%
+            
+              > .photo
+                :position relative
+                :width 100%
+                :height $baseline * 15.75
+                +opacity(0.9)
+              
+                > img
+                  :display block
+                  :width 100%
+                  :height 100%
+              
+                &:before
+                  :content ''
+                  +absoluted
+                  +box-shadow(inset 0 0 15px rgba(0, 0, 0, 0.6))
+              
+                & + h2
+                  :margin
+                    :top $baseline / 2
+            
+              > h2
+                :line-height $baseline * 2
+                :font
+                  :size $baseline * 1.5
+                  :family "RistrettoSlabPro Medium", display
+                  :weight medium
+                +transition-property(opacity, color)
+            
+              > span
+                :display block
+                +transition-property(opacity, color)
+            
+              &:hover
+                > .photo
+                  +opacity(1)
+              
+                > h2, > span
+                  :color $grey
+        
+          & + *
+            :margin
+              :top $baseline
+      
+        &.full
+          :min-height calc(100% + #{$footer})
     
     & + footer
       :margin
@@ -422,6 +624,12 @@ $footer: $baseline * 4
       :align center
     :height $footer
     :line-height $footer
+
+#jivo_top_wrap
+  +opacity(0.9)
+  
+  &:hover
+    +opacity(1)
 
 @for $i from 1 to 4
   @media only screen and (max-width: (6 - $i) * 250px)

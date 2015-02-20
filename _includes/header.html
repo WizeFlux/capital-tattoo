@@ -1,5 +1,5 @@
 <header>
-  <h1><a href="/">{{ site.title }}</a></h1>
+  <h1><a href="{{ "/" | prepend: site.baseurl }}">{{ site.title }}</a></h1>
   <nav>
     <li class="{% if page.navigation == 'main' %}{{ 'active' }}{% endif %}"><a href="{{ "/" | prepend: site.baseurl }}">Главная</a></li>
     <li class="{% if page.navigation == 'about' %}{{ 'active' }}{% endif %}"><a href="{{ "/about" | prepend: site.baseurl }}">О студии</a></li>
