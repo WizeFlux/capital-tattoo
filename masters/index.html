@@ -8,7 +8,7 @@ navigation: masters
   <br />
   <ul class="masters list">
     {% for master in site.data.masters %}
-      <li id="master-{{ forloop.index }}">
+      <li id="master{{ forloop.index }}">
         <div>
           <div class="photo"><img src="{{ site.baseurl }}/images/masters/{{ master.photo }}" /></div>
           <h2>{{ master.name }}</h2>

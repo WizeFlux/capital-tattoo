@@ -18,7 +18,7 @@
         <a href="{{ "/services" | prepend: site.baseurl }}">Услуги</a>
         <ul>
           {% for service in site.data.services %}
-            <li><a href="{{ site.baseurl }}/services#{{ service.id }}" du-smooth-scroll du-scrollspy="{{ service.id }}">{{ service.short_title }}</a></li>
+            <li><a href="{{ site.baseurl }}/services/#{{ service.id }}" du-smooth-scroll du-scrollspy="{{ service.id }}">{{ service.short_title }}</a></li>
           {% endfor %}
         </ul>
       </li>

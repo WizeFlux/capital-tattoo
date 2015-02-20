@@ -17,7 +17,7 @@ navigation: main
   <ul class="masters">
     {% for master in site.data.masters %}
       <li>
-        <a href="{{ site.baseurl }}/masters#master-{{ forloop.index }}">
+        <a href="{{ site.baseurl }}/masters/#master{{ forloop.index }}">
           <div class="photo"><img src="{{ site.baseurl }}/images/masters/{{ master.photo }}" /></div>
           <h2>{{ master.name }}</h2>
           <span>{{ master.type }}</span>
@@ -33,7 +33,7 @@ navigation: main
   <ul class="services">
     {% for service in site.data.services %}
       <li>
-        <a href="{{ site.baseurl }}/services#{{ service.id }}">
+        <a href="{{ site.baseurl }}/services/#{{ service.id }}">
           <div class="photo"><img src="{{ site.baseurl }}/images/services/{{ service.photo }}" /></div>
           <h2>{{ service.title }}</h2>
         </a>
