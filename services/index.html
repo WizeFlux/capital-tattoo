@@ -4,7 +4,7 @@ navigation: services
 ---
 
 {% for service in site.data.services %}
-  <div class="picture service-{{forloop.index}}"></div>
+  <div class="picture service-{{forloop.index}} right"></div>
   <div class="content" id="{{ service.id }}">
     <h2>{{ service.title }}</h2>
     {% for text in service.text %}
