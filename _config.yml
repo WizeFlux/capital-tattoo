@@ -4,7 +4,6 @@ description: Capital Tattoo, столичная студия татуировк�
 baseurl: "/capital-tattoo" # the subpath of your site, e.g. /blog/
 url: "http://akoppela.github.io" # the base hostname & protocol for your site
 emptyArray: []
-emptyObject: {}
 
 # Build settings
 markdown: kramdown
