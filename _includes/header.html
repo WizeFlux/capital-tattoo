@@ -1,10 +1,32 @@
 <header>
   <h1><a href="{{ "/" | prepend: site.baseurl }}">{{ site.title }}</a></h1>
-  <nav>
-    <li class="{% if page.navigation == 'main' %}{{ 'active' }}{% endif %}"><a href="{{ "/" | prepend: site.baseurl }}">Главная</a></li>
-    <li class="{% if page.navigation == 'about' %}{{ 'active' }}{% endif %}"><a href="{{ "/about" | prepend: site.baseurl }}">О студии</a></li>
-    <li class="{% if page.navigation == 'masters' %}{{ 'active' }}{% endif %}"><a href="{{ "/masters" | prepend: site.baseurl }}">Мастера</a></li>
-    <li class="{% if page.navigation == 'services' %}{{ 'active' }}{% endif %}"><a href="{{ "/services" | prepend: site.baseurl }}">Услуги</a></li>
-    <li class="{% if page.navigation == 'contacts' %}{{ 'active' }}{% endif %}"><a href="{{ "/contacts" | prepend: site.baseurl }}">Контакты</a></li>
-  </nav>
+  <aside>
+    <nav>
+      <li class="{% if page.navigation == 'main' %}{{ 'active' }}{% endif %}">
+        <a href="{{ "/" | prepend: site.baseurl }}">Главная</a>
+        <ul class="left">
+          <li><a href="{{ site.baseurl }}/#about" du-smooth-scroll du-scrollspy="about">О студии</a></li>
+          <li><a href="{{ site.baseurl }}/#masters" du-smooth-scroll du-scrollspy="masters">Мастера</a></li>
+          <li><a href="{{ site.baseurl }}/#services" du-smooth-scroll du-scrollspy="services">Услуги</a></li>
+          <li><a href="{{ site.baseurl }}/#contacts" du-smooth-scroll du-scrollspy="contacts">Контакты</a></li>
+        </ul>
+      </li>
+      <li class="{% if page.navigation == 'about' %}{{ 'active' }}{% endif %}"><a href="{{ "/about" | prepend: site.baseurl }}">О студии</a></li>
+      <li class="{% if page.navigation == 'masters' %}{{ 'active' }}{% endif %} {% if page.navigation == 'gallery' %}{{ 'children-active' }}{% endif %} relative">
+        <a href="{{ "/masters" | prepend: site.baseurl }}">Мастера</a>
+        <ul class="left">
+          <li><a href="{{ "/gallery" | prepend: site.baseurl }}" class="{% if page.navigation == 'gallery' %}{{ 'active' }}{% endif %}">Галерея</a></li>
+        </ul>
+      </li>
+      <li class="{% if page.navigation == 'services' %}{{ 'active' }}{% endif %}">
+        <a href="{{ "/services" | prepend: site.baseurl }}">Услуги</a>
+        <ul>
+          {% for service in site.data.services %}
+            <li><a href="{{ site.baseurl }}/services#{{ service.id }}" du-smooth-scroll du-scrollspy="{{ service.id }}">{{ service.short_title }}</a></li>
+          {% endfor %}
+        </ul>
+      </li>
+      <li class="{% if page.navigation == 'contacts' %}{{ 'active' }}{% endif %}"><a href="{{ "/contacts" | prepend: site.baseurl }}">Контакты</a></li>
+    </nav>
+  </aside>
 </header>

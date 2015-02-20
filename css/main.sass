@@ -82,7 +82,7 @@ html, html a
 
 *, *:before, *:after
   +box-sizing
-  +transition(opacity .75s ease-in-out)
+  +transition(opacity .3s ease-in-out)
 
 body
   :line-height $baseline
@@ -118,40 +118,95 @@ $footer: $baseline * 4
         :background url("{{ "/images/icons/logo.jpg" | prepend: site.baseurl }}") no-repeat center
         +background-size(100%)
       
-      & + nav
+      & + aside
         :margin
           :top -$header
     
-    > nav
+    > aside
       +grid-container($min_width)
       :height $header
-      :padding
-        :top ($header - $baseline * 3.5) / 2
-        :bottom ($header + $baseline * 1.5) / 2
       :text
         :align right
       +children-inline
       
-      > li
-        > a
-          :display block
-          :width 100%
-          :height 100%
-          :font
-            :family "RistrettoSlabPro Medium", display
-            :weight medium
-          +transition-property(opacity, color)
+      > nav
+        :position relative
+        :height $baseline
+        :margin
+          :top ($header - $baseline * 3.5) / 2
+          :bottom ($header + $baseline * 1.5) / 2
+        +children-inline
+      
+        > li
+          > a
+            :display block
+            :width 100%
+            :height 100%
+            :font
+              :family "RistrettoSlabPro Medium", display
+              :weight medium
+            +transition-property(opacity, color)
           
-          &:hover
+            &:hover
+              :color $grey
+          
+          > ul
+            +opacity(0)
+            :visibility hidden
+            :position absolute
+            :width 100%
+            :top 100%
+            :right 0
+            :padding
+              :top $baseline / 2
+            +transition-property(opacity, visibility)
+            +children-inline
+            
+            > li
+              > a
+                :display block
+                :width 100%
+                :height 100%
+                :font
+                  :size $baseline * 0.9
+                +transition-property(opacity, color)
+                
+                &:hover, &.active
+                  :color $grey
+              
+              & + li
+                :margin
+                  :left $ninesixty_gutter_width * 2
+            
+            &.left
+              :right auto
+              :left 0
+              :text
+                :align left
+        
+          &.active > a
             :color $grey
+            :cursor default
+          
+          &.relative
+            :position relative
+          
+          &:hover > ul, &.active > ul, &.children-active > ul
+            :visibility visible
+            +opacity(1)
         
-        &.active > a
-          :color $grey
-          :cursor default
+          & + li
+            :margin
+              :left $ninesixty_gutter_width * 2
         
-        & + li
-          :margin
-            :left $ninesixty_gutter_width * 2
+        &:hover > li
+          > ul
+            +opacity(0)
+            :visibility hidden
+          
+          &:hover > ul
+            :visibility visible
+            +opacity(1)
     
     & + *
       :height 100%
@@ -229,6 +284,10 @@ $footer: $baseline * 4
             :weight medium
           :text
             :align center
+          
+          &.margin-top
+            :margin
+              :top $baseline * 4
         
           &.right
             :text
@@ -248,7 +307,14 @@ $footer: $baseline * 4
             :font
               :family "RistrettoSlabPro Medium", display
               :weight medium
-        
+          
+          > i
+            :display block
+            :font
+              :style normal
+            :text
+              :align center
+          
           > a
             +inline-block
             :height $baseline * 1.5
@@ -277,10 +343,22 @@ $footer: $baseline * 4
         
           &.short
             +grid-container($ninesixty_gutter_width * 60)
+          
+          &.margin-top
+            :margin
+              :top $baseline * 3
+          
+          & + .aside
+            :margin
+              :top -$baseline * 1.5
         
           & + *
             :margin
               :top $baseline
+            
+            &.no-margin
+              :margin
+                :top $baseline / 2
       
         .logo
           :margin
@@ -610,7 +688,80 @@ $footer: $baseline * 4
           & + *
             :margin
               :top $baseline
-      
+        
+        > ul.gallery
+          +grid-container($min_width)
+          :height $baseline * 22.5
+          :white-space nowrap
+          :overflow hidden
+          +children-inline
+        
+          > li
+            :position relative
+            :z-index 1
+            :width 100%
+            :height 100%
+            :background $grey no-repeat center
+            +background-size(cover)
+            +box-shadow(inset 0 0 15px rgba(0, 0, 0, 0.6))
+            +children-inline
+          
+            > a
+              :position absolute
+              :width 50%
+              :height 100%
+              +opacity(0)
+            
+              &:before
+                :content ''
+                :position absolute
+                :width $baseline * 2
+                :height $baseline * 2
+                :top 50%
+                :margin
+                  :top -$baseline
+                :background
+                  :color $white
+                :background rgba(255, 255, 255, 0.6) url("{{ "/images/icons/arrow.png" | prepend: site.baseurl }}") center
+                +background-size(cover)
+                +border-radius($baseline)
+                +box-shadow(inset 0 0 15px rgba(0, 0, 0, 0.25))
+            
+              &.left
+                :left 0
+              
+                &:before
+                  :left $ninesixty_gutter_width * 2
+                  +rotate(180)
+            
+              &.right
+                :right 0
+              
+                &:before
+                  :right $ninesixty_gutter_width * 2
+            
+              &:hover
+                +opacity(1)
+          
+            &.active
+              :z-index 2
+              +opacity(1)
+              :-webkit-animation-duration .75s
+              :animation-duration .75s
+              :-webkit-animation-name vanishIn
+              :animation-name vanishIn
+          
+            &:not(.active)
+              +opacity(0)
+              :-webkit-animation-duration .75s
+              :animation-duration .75s
+              :-webkit-animation-name vanishOut
+              :animation-name vanishOut
+          
+            & ~ li
+              :margin
+                :left -100%
+        
         &.full
           :min-height calc(100% + #{$footer})
     

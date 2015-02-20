@@ -2,10 +2,10 @@
 <html ng-app="CapitalTattoo">
   {% include head.html %}
   <body ng-controller="WelcomeController">
-    <div id="container">
+    <div id="container" du-scroll-container="wrapper">
       {% include header.html %}
       <div id="welcome">
-        <div class="wrapper">
+        <div class="wrapper" id="wrapper">
           {{ content }}
         </div>
       </div>

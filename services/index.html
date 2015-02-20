@@ -5,10 +5,22 @@ navigation: services
 
 {% for service in site.data.services %}
   <div class="picture service-{{forloop.index}}"></div>
-  <div class="content">
+  <div class="content" id="{{ service.id }}">
     <h2>{{ service.title }}</h2>
     {% for text in service.text %}
       <p>{{ text }}</p>
     {% endfor %}
+    {% for group in service.groups %}
+      <h2 class="margin-top">{{ group.title }}</h2>
+      {% for price in group.prices %}
+        <p class="short no-margin"><b>{{ price.title }}:</b></p>
+        <p class="short right aside">{{ price.price }}</p>
+      {% endfor %}
+    {% endfor %}
+    {% if service.subtext %}
+      <p class="center margin-top">{{ service.subtext }}</p>
+    {% endif %}
+    <h2 class="margin-top">Почему выбирают нас</h2>
+    <p class="center">{{ service.why_choose_us }}</p>
   </div>
 {% endfor %}

@@ -1,0 +1,23 @@
+---
+layout: default
+navigation: gallery
+---
+
+<div class="content full">
+  <ul class="gallery" ng-init="gallery = {active: '{{ master.photos[0] }}'}">
+    {% for master in site.data.masters %}
+      {% for photo in master.photos %}
+        <li ng-class="{ active: gallery.active == '{{ master.gallery_folder }}_{{ photo }}' }" style='background-image: url("{{ site.baseurl }}/images/masters/{{ master.gallery_folder }}/{{ photo }}");'>
+          {% unless forloop.first %}
+            <a ng-click="gallery.active = '{{ prev }}'" class="left"></a>
+          {% endunless %}
+          {% unless forloop.last %}
+            {% assign next = (master.gallery_folder + '_' + master.photos[forloop.index]) %}
+            <a ng-click="gallery.active = '{{ next }}'" class="right"></a>
+          {% endunless %}
+        </li>
+        {% assign prev = master.gallery_folder + '_' + photo %}
+      {% endfor %}
+    {% endfor %}
+  </ul>
+</div>
