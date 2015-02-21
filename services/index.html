@@ -13,7 +13,7 @@ navigation: services
     {% for group in service.groups %}
       <h2 class="margin-top">{{ group.title }}</h2>
       {% for price in group.prices %}
-        <p class="short no-margin"><b>{{ price.title }}:</b></p>
+        <p class="short no-margin padding-right"><b>{{ price.title }}:</b></p>
         <p class="short right aside">{{ price.price }}</p>
       {% endfor %}
     {% endfor %}
