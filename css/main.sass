@@ -90,7 +90,6 @@ body
     :size $baseline
   :height 100%
   :min-height 100%
-  :min-width $ninesixty_gutter_width * 40
 
 $header: $baseline * 6
 $logo: $ninesixty_gutter_width * 25
@@ -1013,3 +1012,11 @@ $footer: $baseline * 4
     > ul.masters, > ul.services
       > li
         :width 100%
+                
+@media only screen and (max-width: 400px)
+  html
+    :font
+      :size 3 * $base / 4
+  
+  #container > footer > span
+    :display none
