@@ -1,8 +1,8 @@
 # Site settings
 title: Capital Tattoo - Столичная Студия Татуировки
 description: Capital Tattoo, столичная студия татуировки
-baseurl: "/" # the subpath of your site, e.g. /blog/
-url: "http://www.capitaltattoo.ru/" # the base hostname & protocol for your site
+baseurl: "" # the subpath of your site, e.g. /blog/
+url: "http://www.capitaltattoo.ru" # the base hostname & protocol for your site
 emptyArray: []
 
 # Build settings
