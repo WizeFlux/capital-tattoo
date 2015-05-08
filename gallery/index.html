@@ -12,6 +12,8 @@ redirect_from:
     {% assign photoArray = photoArray | push: p %}
   {% endfor %}
 {% endfor %}
-{% for photo in photoArray %}
-  <div class="picture with-footer" style="background-image: url({{ site.baseurl }}/images/masters/{{ photo }});"></div>
-{% endfor %}
+<div class="pictures" shuffle>
+  {% for photo in photoArray %}
+    <div class="picture contain" style="background-image: url({{ site.baseurl }}/images/masters/{{ photo }});"></div>
+  {% endfor %}
+</div>
