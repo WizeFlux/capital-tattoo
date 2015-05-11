@@ -38,6 +38,8 @@
       prices:
         - title: Губа (смайл)
           price: 1000 руб
+        - title: Губа
+          price: 1000 руб
         - title: Губа (симметрия)
           price: 1500 руб
         - title: Нос (септум)
@@ -51,7 +53,7 @@
         - title: Щека (один прокол)
           price: 1000 руб
         - title: Монро
-          price: 600 руб
+          price: 1000 руб
         - title: Язык
           price: 1000 руб
         - title: Язык (симметрия)
