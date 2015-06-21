@@ -168,10 +168,10 @@
 
 - name: Валера Силин
   type: Тату мастер
-  photo: valera_silin.jpg
+  photo: valeriy_silin.jpg
   experience: 3 года
-  styles: old school, neo traditional, new school
-  gallery_folder: valera_silin
+  styles: 'old school, neo traditional, new school'
+  gallery_folder: valeriy_silin
   photos:
     - 001.jpg
     - 002.jpg
