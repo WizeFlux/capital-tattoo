@@ -1,9 +1,9 @@
-- name: Валерий Силин
+- name: Константин Строкин
   type: Тату мастер
-  photo: valeriy_silin.jpg
-  experience: 6 лет
-  styles: надписи, футбольные татуировки
-  gallery_folder: valeriy_silin
+  photo: kostya_strokin.jpg
+  experience: 4 лет
+  styles: реализм, black and grey, треш-полька  
+  gallery_folder: kostya_strokin
   photos:
     - 001.jpg
     - 002.jpg
@@ -11,88 +11,24 @@
     - 004.jpg
     - 005.jpg
     - 006.jpg
-    - 007.jpg
-    - 008.jpg
-    - 009.jpg
-    - 010.jpg
-    - 011.jpg
-    - 012.jpg
-    - 013.jpg
-    - 014.jpg
-    - 015.jpg
-    - 016.jpg
-    - 017.jpg
-    - 018.jpg
-    - 019.jpg
-    - 020.jpg
-    - 021.jpg
-    - 022.jpg
-    - 023.jpg
-    - 024.jpg
-    - 025.jpg
-    - 026.jpg
-    - 027.jpg
-    - 028.jpg
-    - 029.jpg
-    - 030.jpg
-    - 031.jpg
-    - 032.jpg
-    - 033.jpg
-    - 034.jpg
-    - 035.jpg
-    - 036.jpg
-
-# - name: Дмитрий Зотов
-#   type: Тату мастер
-#   photo: dmitry_zotov.jpg
-#   experience: 16 лет
-#   gallery_folder: dmitry_zotov
-#   photos:
-#     - 001.jpg
-#     - 002.jpg
-#     - 003.jpg
-#     - 004.jpg
-#     - 005.jpg
-#     - 006.jpg
-#     - 007.jpg
-#     - 008.jpg
-#     - 009.jpg
-#     - 010.jpg
-#     - 011.jpg
-#     - 012.jpg
-#     - 013.jpg
-#     - 014.jpg
-#     - 015.jpg
-#     - 016.jpg
-#     - 017.jpg
-#     - 018.jpg
-#     - 019.jpg
-#     - 020.jpg
-#     - 021.jpg
-#     - 022.jpg
-#     - 023.jpg
-#     - 024.jpg
-#     - 025.jpg
-#     - 026.jpg
-#     - 027.jpg
-#     - 028.jpg
-#     - 029.jpg
-#     - 030.jpg
-#     - 031.jpg
-#     - 032.jpg
-#     - 033.jpg
-#     - 034.jpg
-#     - 035.jpg
-#     - 036.jpg
-#     - 037.jpg
-#     - 038.jpg
-#     - 039.jpg
-#     - 040.jpg
-#     - 041.jpg
-#     - 042.jpg
-#     - 043.jpg
-#     - 044.jpg
-#     - 045.jpg
+  
+ - name: Юрий Яхонт
+   type: Тату мастер
+   photo: yura_yahont.jpg
+   experience: 5 лет
+   styles: реализм, black and grey, new school
+   gallery_folder: yura_yahont
+   photos:
+     - 001.jpg
+     - 002.jpg
+     - 003.jpg
+     - 004.jpg
+     - 005.jpg
+     - 006.jpg
+     - 007.jpg
+     - 008.jpg
+     - 009.jpg
+     - 010.jpg
 
 - name: Виктория Нордик
   type: Тату мастер
@@ -154,6 +90,32 @@
     - 051.jpg
     - 052.jpg
     - 053.jpg
+	- 054.jpg
+    - 055.jpg
+    - 056.jpg
+    - 057.jpg
+    - 058.jpg
+    - 059.jpg
+    - 060.jpg
+    - 061.jpg
+    - 062.jpg
+    - 063.jpg
+    - 064.jpg
+    - 065.jpg
+    - 066.jpg
+    - 067.jpg
+    - 068.jpg
+    - 069.jpg
+    - 070.jpg
+    - 071.jpg
+	- 072.jpg
+	- 073.jpg
+	- 074.jpg
+	- 075.jpg
+	- 076.jpg
+	- 077.jpg
+	- 078.jpg
+	- 079.jpg
 
 # - name: Merk
 #   type: Тату мастер
@@ -219,11 +181,43 @@
     - 011.jpg
     - 012.jpg
     - 013.jpg
+    - 014.jpg
+    - 015.jpg
+    - 016.jpg
+    - 017.jpg
+    - 018.jpg
+    - 019.jpg
+    - 020.jpg
+    - 021.jpg
+    - 022.jpg
+    - 023.jpg
+    - 024.jpg
+    - 025.jpg
+    - 026.jpg
+    - 027.jpg
+    - 028.jpg
+    - 029.jpg
+    - 030.jpg
+    - 031.jpg
+    - 032.jpg
+    - 033.jpg
+    - 034.jpg
+    - 035.jpg
+    - 036.jpg
+    - 037.jpg
+    - 038.jpg
+    - 039.jpg
+	- 040.jpg
+	- 041.jpg
+	- 042.jpg
+	- 043.jpg
 
-- name: Татьяна Сурикова
+ - name: Валера Силин
   type: Тату мастер
-  photo: tanya_surikova.jpg
-  gallery_folder: tanya_surikova
+  photo: valera_silin.jpg
+  experience: 3 года
+  styles: old school, neo traditional, new school
+  gallery_folder: valera_silin
   photos:
     - 001.jpg
     - 002.jpg
@@ -255,6 +249,17 @@
     - 028.jpg
     - 029.jpg
     - 030.jpg
+	- 031.jpg
+	- 032.jpg
+	- 033.jpg
+	- 034.jpg
+	- 035.jpg
+	- 036.jpg
+	- 037.jpg
+	- 038.jpg
+	- 039.jpg
+	- 040.jpg
+	- 041.jpg
 
 - name: Лала
   type: Пирсинг мастер
