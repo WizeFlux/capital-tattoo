@@ -90,7 +90,7 @@
     - 051.jpg
     - 052.jpg
     - 053.jpg
-	- 054.jpg
+    - 054.jpg
     - 055.jpg
     - 056.jpg
     - 057.jpg
@@ -108,14 +108,14 @@
     - 069.jpg
     - 070.jpg
     - 071.jpg
-	- 072.jpg
-	- 073.jpg
-	- 074.jpg
-	- 075.jpg
-	- 076.jpg
-	- 077.jpg
-	- 078.jpg
-	- 079.jpg
+    - 072.jpg
+    - 073.jpg
+    - 074.jpg
+    - 075.jpg
+    - 076.jpg
+    - 077.jpg
+    - 078.jpg
+    - 079.jpg
 
 - name: Роман
   type: Тату мастер
@@ -161,12 +161,12 @@
     - 037.jpg
     - 038.jpg
     - 039.jpg
-	- 040.jpg
-	- 041.jpg
-	- 042.jpg
-	- 043.jpg
+    - 040.jpg
+    - 041.jpg
+    - 042.jpg
+    - 043.jpg
 
- - name: Валера Силин
+- name: Валера Силин
   type: Тату мастер
   photo: valera_silin.jpg
   experience: 3 года
