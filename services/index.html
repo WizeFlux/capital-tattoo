@@ -1,13 +1,19 @@
 ---
 layout: default
 navigation: services
-rediredct_from:
+redirect_from:
   - /services/Tattoo/
   - /services/price/
   - /services/piercing/
   - /services/TattooRemove/
 ---
 
+{% if site.data.event.active %}
+  <div class="content">
+    <h2>{{ site.data.event.title }}</h2>
+    <p class="center">{{ site.data.event.text | newline_to_br }}</p>
+  </div>
+{% endif %}
 {% for service in site.data.services %}
   <div class="picture service-{{forloop.index}} right"></div>
   <div class="content" id="{{ service.id }}">
